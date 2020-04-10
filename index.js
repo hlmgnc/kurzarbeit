@@ -1,13 +1,11 @@
+const express = require('express')
+const app = express()
 
-const { clientDatabase, expertDatabase } = require('./database')
-const printMatchingHistory = require('./lib/print-matching-history')
+    app.get('/',(req,res) => {
+      res.send('hello world')
 
-const hilmi = expertDatabase.findBy('name','Hilmi')
-const armagan = clientDatabase.findByName('Armagan')
+    }) 
 
-armagan.match(hilmi, 'Frankfurt','Frankfurt')
-clientDatabase.update(armagan)
-
-printMatchingHistory(armagan)
-
-console.log(clientDatabase.findBy('location', 'Frankfurt'))
+app.listen(3000,() => {
+    console.log('started listening on 3000')
+})

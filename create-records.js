@@ -10,16 +10,27 @@ const armagan =Client.create({name: 'Armagan', location : 'Frankfurt'})
 const aykut = Client.create({name: 'Aykut', location : 'Frankfurt'})
 const dogu = Expert.create({name: 'Dogu',location : 'Frankfurt'})
 
-clientDatabase.save([armagan ,aykut])
-expertDatabase.save([hilmi, dogu] )
+
 
 armagan.match(hilmi,'Frankfurt','Frankfurt')
 dogu.match(aykut,'Frankfurt','Frankfurt')
 
-const sencer = Client.create({name :'sencer', location: 'Frankfurt'})
+async function main() {
+try{
 
-clientDatabase.insert(sencer)
+ await clientDatabase.save([armagan ,aykut])
+ await expertDatabase.save([hilmi, dogu] )
 
-const client = db.load('clients')
+ const sencer = Client.create({name :'sencer', location: 'Frankfurt'})
+
+await clientDatabase.insert(sencer)
+
+const client = await clientDatabase.load()
 
 clientDatabase.forEach(printMatchingHistory)
+} catch (e) {
+    return console.log(e)
+}
+
+}
+main()
