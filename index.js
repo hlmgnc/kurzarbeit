@@ -1,26 +1,18 @@
 const express = require('express')
-const { clientDatabase } = require('./database')
-const flatted = require('flatted')
+const bodyParser = require('body-parser')
+const clientsRouter = require('./routes/clients')
+const indexRouter = require('./routes/index')
+const expertsRouter = require('./routes/experts')
+const Client = require('./models/client')
 
 const app = express()
+app.use(bodyParser.json())
+
 app.set('view engine', 'pug')
 
-app.get('/clients', async (req, res) => {
-    const clients = await clientDatabase.load()  
-    //res.send(flatted.stringify(clients))
-    res.render('clients',{clients})
-}) 
-
-app.get('/clients/:clientId', async(req,res)=> {
-    const client = await clientDatabase.find(req.params.clientId)
-    if(!client) return res.status(404).send('cannot find client')
-    res.render('client',{ client })
-
-})
-app.get('/', (req, res) => {
-   res.render('index')
- 
-})    
+app.use('/clients', clientsRouter)
+app.use('/', indexRouter)
+app.use('/experts', expertsRouter)
 
 app.listen(8080,() => {
     console.log('started listening on 8080')

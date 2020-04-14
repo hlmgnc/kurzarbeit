@@ -1,12 +1,15 @@
+const uuid = require('uuid')
+
 class Expert{
-    constructor(name,location){
+    constructor(id = uuid.v4(),name,location){
+    this.id = id
     this.name = name
     this.location = location
     }
 
 
-  static create({name, location}) {
-    return new Expert(name,location)
+  static create({id,name, location}) {
+    return new Expert(id,name,location)
     
    }
 }

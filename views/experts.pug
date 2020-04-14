@@ -1,0 +1,10 @@
+extends layout
+block content
+
+      h2 Expert(s) :
+      p there are #{experts.length} expert(s)
+
+      ol
+       each expert in experts
+        li
+          a(href=`/experts/${expert.id}`) #{expert.name}

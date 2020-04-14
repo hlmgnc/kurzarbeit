@@ -13,7 +13,6 @@ const dogu = Expert.create({name: 'Dogu',location : 'Frankfurt'})
 
 
 armagan.match(hilmi,'Frankfurt','Frankfurt')
-dogu.match(aykut,'Frankfurt','Frankfurt')
 
 async function main() {
 try{
@@ -25,9 +24,8 @@ try{
 
 await clientDatabase.insert(sencer)
 
-const client = await clientDatabase.load()
+const clients = await clientDatabase.load()
 
-clientDatabase.forEach(printMatchingHistory)
 } catch (e) {
     return console.log(e)
 }
