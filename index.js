@@ -4,6 +4,7 @@ const clientsRouter = require('./routes/clients')
 const indexRouter = require('./routes/index')
 const expertsRouter = require('./routes/experts')
 const Client = require('./models/client')
+require('./mongo-connection')
 
 const app = express()
 app.use(bodyParser.json())

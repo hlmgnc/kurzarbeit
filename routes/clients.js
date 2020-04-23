@@ -1,6 +1,7 @@
 const { clientDatabase,expertDatabase } = require('../database')
 const flatted = require('flatted')
 
+
 const router = require('express').Router()
 
 router.post('/', async (req, res) => {
@@ -12,7 +13,7 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:clientId', async (req, res) =>{
-    await clientDatabase.removeBy('id', req.params.clientId)
+    await clientDatabase.removeBy('_id', req.params.clientId)
     res.send('ok')
 })
 
@@ -30,8 +31,8 @@ router.get('/:clientId', async (req, res)=> {
 })
 
 router.post('/:clientId/matchings', async(req,res) => {
-    const { passengerId } = req.params
-    const { driverId, origin, destination } = req.body
+    const { clientId } = req.params
+    const { expertId, origin, destination } = req.body
 
     const client = await clientDatabase.find(req.params.clientId)
     const expert = await expertDatabase.find(expertId)
@@ -41,6 +42,15 @@ router.post('/:clientId/matchings', async(req,res) => {
     
     await clientDatabase.update(client)
     res.send(flatted.stringify(client))
+})
+
+router.patch('/:clientId', async (req,res) => {
+
+const { clientId } = req.param
+const { name } = req.body
+
+await clientDatabase.update(clientId, { name })
+
 })
 
 module.exports = router
