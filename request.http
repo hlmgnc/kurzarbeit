@@ -1,7 +1,7 @@
 POST http://localhost:8080/clients HTTP/1.1
 content-type: application/json 
 
-{"name" : "Ferhat" , "location" : "Koln"}
+{"name" : "mira" , "location" : "Bremen"}
 
 ###
 
@@ -9,11 +9,22 @@ GET http://localhost:8080/clients/ HTTP/1.1
 
 ###
 
-DELETE http://localhost:8080/clients/ HTTP/1.1
+GET http://localhost:8080/clients/5ea1c6412afa2d368ccf1121 HTTP/1.1
 
 ###
 
-PATCH http://localhost:8080/clients HTTP/1.1
+DELETE http://localhost:8080/clients/5ea2e77d3664224458e799f7 HTTP/1.1
+
+###
+
+PATCH http://localhost:8080/clients/5ea1c6412afa2d368ccf1121 HTTP/1.1
 content-type: application/json 
 
 {"name" : "Yesim" }
+
+###
+
+POST http://localhost:8080/client/5ea2e7e03664224458e799f9/matchings/5ea2e7d53664224458e799f8  HTTP/1.1
+content-type: application/json 
+
+

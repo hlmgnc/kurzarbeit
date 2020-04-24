@@ -20,9 +20,9 @@ class BaseDatabase {
         
         return this.model.deleteOne({[property]: value})
     }
-    async update (object){
+    async update (id, object){
         
-        return this.model.findByIdAndUpdate({ id,object})   
+        return this.model.findByIdAndUpdate( id,object )   
     }
     async find(id) {
         

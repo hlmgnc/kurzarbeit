@@ -3,9 +3,22 @@
 
 const mongoose = require('mongoose')
 const ClientSchema = new mongoose.Schema({
-name: String,
-location: String,
-matchings:[]
+name:{
+    
+    type:String,
+    required: true
+},   
+location:{
+
+    type:String,
+    required: true
+},
+matchings:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Client'
+
+
+}]
 
 }) 
 

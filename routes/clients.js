@@ -7,8 +7,7 @@ const router = require('express').Router()
 router.post('/', async (req, res) => {
     
     console.log(req.body)
-    const client = Client.create(req.body)
-    await clientDatabase.insert(client)
+    const client= await clientDatabase.insert(req.body)
     res.send(client)
 })
 
@@ -37,7 +36,7 @@ router.post('/:clientId/matchings', async(req,res) => {
     const client = await clientDatabase.find(req.params.clientId)
     const expert = await expertDatabase.find(expertId)
     
-    client.match(client, origin , destination)
+    client.match(expert, origin , destination)
 
     
     await clientDatabase.update(client)
@@ -46,7 +45,7 @@ router.post('/:clientId/matchings', async(req,res) => {
 
 router.patch('/:clientId', async (req,res) => {
 
-const { clientId } = req.param
+const { clientId } = req.params
 const { name } = req.body
 
 await clientDatabase.update(clientId, { name })
