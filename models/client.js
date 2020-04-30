@@ -1,4 +1,4 @@
-//const Matching = require('./matching')
+const Matching = require('./matching')
 //const uuid = require('uuid')
 
 const mongoose = require('mongoose')
@@ -14,40 +14,24 @@ location:{
     required: true
 },
 matchings:[{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Client'
-
-
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Matching',
+        autopopulate: {maxDepth :2}
 }]
 
-}) 
+})
 
+ClientSchema.methods.match = async function(expert,origin,destination){
+const matching = await Matching.create ({expert, client: this, origin, destination})
+this.matchings.push(matching)
+
+await this.save()
+
+return matching
+}
+
+ClientSchema.plugin(require('mongoose-autopopulate'))
 module.exports = mongoose.model('client', ClientSchema)
 
-//class Client{
-//    constructor(id = uuid.v4(), name, location, matchings = []) {
-//        this.id = id
-//        this.name = name
-//        this.location = location
-//        this.matchings = matchings
-    
-//    } 
 
-//    match(expert,origin,destination) {
-//       const matching = new Matching (expert, this, origin, destination)
-
-//        this.matchings.push(matching)
-//        return matching
-//    }
-    
-    
-//    static create({id, name, location, matchings}) {
-      
-//        return new Client(id, name, location, matchings)
-    
-    
-//   }
-//}
-
-
-//module.exports = Client 
+ 

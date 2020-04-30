@@ -1,17 +1,19 @@
-const uuid = require('uuid')
-
-class Expert{
-    constructor(id = uuid.v4(),name,location){
-    this.id = id
-    this.name = name
-    this.location = location
-    }
 
 
-  static create({id,name, location}) {
-    return new Expert(id,name,location)
+const mongoose = require('mongoose')
+const ExpertSchema = new mongoose.Schema({
+name:{
     
-   }
-}
+    type:String,
+    required: true
+},   
+location:{
 
-module.exports = Expert
+    type:String,
+    required: true
+},
+matchings:[]
+
+}) 
+
+module.exports = mongoose.model('expert', ExpertSchema)

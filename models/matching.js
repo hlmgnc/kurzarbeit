@@ -1,12 +1,20 @@
-class Matching{
-    constructor(client, expert, origin, destination){
-        this.client = client
-        this.expert = expert
-        this.origin = origin
-        this.destination = destination
 
-    }
+const mongoose = require('mongoose')
+const MatchingSchema = new mongoose.Schema({
+    client: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'client',
+        autopopulate: {maxDepth :1}
+    },
+    expert: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'expert',
+        autopopulate:  {maxDepth :1}
+    },
+    origin: String,
+    destination: String
+}) 
 
-}
+MatchingSchema.plugin(require('mongoose-autopopulate'))
 
-module.exports = Matching
+module.exports = mongoose.model('Matching', MatchingSchema)

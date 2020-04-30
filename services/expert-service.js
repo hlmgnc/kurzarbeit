@@ -1,7 +1,7 @@
-const BaseDatabase = require ('./base-database')
+const BaseService = require ('./base-service')
 const Expert = require ('../models/expert')
 
-class ExpertDatabase extends BaseDatabase {
+class ExpertService extends BaseService {
      
       findByExpertName(name) {
         return this.findBy('name', name)
@@ -13,4 +13,4 @@ class ExpertDatabase extends BaseDatabase {
       }
 
 }
-module.exports = new ExpertDatabase(Expert)
+module.exports = new ExpertService(Expert)

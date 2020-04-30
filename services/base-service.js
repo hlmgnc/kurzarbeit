@@ -2,7 +2,7 @@ const fs = require('fs')
 const flatted = require('flatted')
 
 
-class BaseDatabase {
+class BaseService {
     constructor(model){
         this.model = model
     }
@@ -26,7 +26,7 @@ class BaseDatabase {
     }
     async find(id) {
         
-        return this.model.findById(id)
+        return this.model.findById(id).populate('matchings')
     }
     async findBy(property, value) {
 
@@ -34,4 +34,4 @@ class BaseDatabase {
     }
 }
 
-module.exports = BaseDatabase
+module.exports = BaseService

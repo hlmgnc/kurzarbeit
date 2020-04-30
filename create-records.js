@@ -1,7 +1,7 @@
 const Expert = require ('./models/expert')
 const Client = require ('./models/client')
-const clientDatabase = require ('./database/client-database')
-const expertDatabase = require ('./database/expert-database')
+const clientService = require ('./service/client-service')
+const expertService = require ('./service/expert-service')
 
 const printMatchingHistory = require ('./lib/print-matching-history')
 
@@ -17,14 +17,14 @@ armagan.match(hilmi,'Frankfurt','Frankfurt')
 async function main() {
 try{
 
- await clientDatabase.save([armagan ,aykut])
- await expertDatabase.save([hilmi, dogu] )
+ await clientService.save([armagan ,aykut])
+ await expertService.save([hilmi, dogu] )
 
  const sencer = Client.create({name :'sencer', location: 'Frankfurt'})
 
-await clientDatabase.insert(sencer)
+await clientService.insert(sencer)
 
-const clients = await clientDatabase.load()
+const clients = await clientService.load()
 
 } catch (e) {
     return console.log(e)

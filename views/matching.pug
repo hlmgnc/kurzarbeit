@@ -1,0 +1,14 @@
+extends layout
+block content
+   h2 Matching Details
+   p There are #{matchings.length} matchings
+   
+   ol
+      each client in clients
+         li
+            p Clients:
+               a(href=`/clients/${matching.client.id}`) #{matching.client.name}
+            p Experts: 
+               a(href=`/experts/${matching.expert.id}`) #{matching.expert.name}
+            p Origin : #{matching.origin}      
+            p Destination : #{matching.destination}
