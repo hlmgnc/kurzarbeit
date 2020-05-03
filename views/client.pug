@@ -1,13 +1,12 @@
 extends layout
 block content
+    h2 Client Detail
+    p #{client.name} 
 
-      h2 Client Detail
-      p #{client.name} 
-
-      h3 Matching History 
-          if client.matchings.length 
-            ol
-             each matching in client.matchings
-              li From #{matching.origin} to #{matching.destination} with #{matching.expert.name}
-          else 
-              p no matching
+    h3 Matching History 
+    if client.matchings.length 
+      ol
+        each matching in client.matchings
+          li From #{matching.origin} to #{matching.destination} with #{matching.expert.name}
+    else 
+      p no matching

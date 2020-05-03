@@ -4,14 +4,23 @@ const router = require('express').Router()
 
 router.get('/', async (req, res) => {
     const matchings = await matchingService.load()  
-    res.render('matchings',{matchings})
+    res.render('matchings',{ matchings })
 }) 
 
 router.get('/search', async (req, res)=> {
-    const expertId =req.query.expertId
-    const matching = await matchingService.findByExpertId(expertId)
+   
+    const origin = req.query.origin
+    const destination = req.query.destination
+  
+    const query = {}
+  
+    if (origin) query.origin = origin
+    if (destination) query.destination = destination
+  
+
+    const matchings = await matchingService.query(query)
     
-    res.render('matchings',{ matching })
+    res.render('matchings',{ matchings })
 
 })
 

@@ -1,7 +1,7 @@
 const Expert = require ('./models/expert')
 const Client = require ('./models/client')
-const clientService = require ('./service/client-service')
-const expertService = require ('./service/expert-service')
+const clientService = require ('./service/client-services')
+const expertService = require ('./service/expert-services')
 
 const printMatchingHistory = require ('./lib/print-matching-history')
 
@@ -25,6 +25,7 @@ try{
 await clientService.insert(sencer)
 
 const clients = await clientService.load()
+clients.forEach(printMatchingHistory)
 
 } catch (e) {
     return console.log(e)

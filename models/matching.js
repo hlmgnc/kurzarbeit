@@ -1,16 +1,19 @@
 
 const mongoose = require('mongoose')
 const MatchingSchema = new mongoose.Schema({
-    client: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'client',
-        autopopulate: {maxDepth :1}
-    },
     expert: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'expert',
+        ref: 'Expert',
         autopopulate:  {maxDepth :1}
     },
+    
+    
+    client: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Client',
+        autopopulate: {maxDepth :1}
+    },
+    
     origin: String,
     destination: String
 }) 

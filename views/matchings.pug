@@ -4,7 +4,7 @@ block content
    p There are #{matchings.length} matchings
    
    ol
-      each client in clients
+      each matching in matchings
          li
             p Clients:
                a(href=`/clients/${matching.client.id}`) #{matching.client.name}

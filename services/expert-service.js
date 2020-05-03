@@ -3,11 +3,11 @@ const Expert = require ('../models/expert')
 
 class ExpertService extends BaseService {
      
-      findByExpertName(name) {
+      async findByExpertName(name) {
         return this.findBy('name', name)
       }
 
-      findByLocation(location) {
+      async findByLocation(location) {
         return this.findBy('location',location)
 
       }

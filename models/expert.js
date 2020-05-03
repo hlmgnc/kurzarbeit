@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose')
 const ExpertSchema = new mongoose.Schema({
 name:{
@@ -12,8 +10,8 @@ location:{
     type:String,
     required: true
 },
-matchings:[]
+age: { type: Number, required: true, min: 18 },
 
 }) 
 
-module.exports = mongoose.model('expert', ExpertSchema)
+module.exports = mongoose.model('Expert', ExpertSchema)

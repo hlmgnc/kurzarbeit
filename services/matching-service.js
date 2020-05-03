@@ -15,5 +15,17 @@ class MatchingService extends BaseService {
 
       }
 
+      async match(expertId, clientId, origin, destination) {
+        const client = await clientService.find(clientId)
+        const expert = await expertService.find(expertId)
+    
+        const matching = await this.insert({ expert, client, origin, destination })
+        client.matchings.push(matching)
+    
+        await client.save()
+    
+        return matching
+      }
+
 }
 module.exports = new MatchingService(Matching)
