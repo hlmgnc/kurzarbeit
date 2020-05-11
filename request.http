@@ -42,7 +42,7 @@ DELETE http://localhost:8080/experts/5ea8222df35cfb2d28e2ef09 HTTP/1.1
 POST http://localhost:8080/clients/5ea1c43d2afa2d368ccf111f/matchings HTTP/1.1
 content-type: application/json 
 
-{"expertID": "5eaaedcc9bea3d1d4c0dcf74" , "origin" :"köln", "destination" : "köln" }
+{"expertId": "5eaaedcc9bea3d1d4c0dcf74" , "origin" :"köln", "destination" : "köln" }
 
 ###
 

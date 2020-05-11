@@ -7,6 +7,6 @@ block content
     if client.matchings.length 
       ol
         each matching in client.matchings
-          li From #{matching.origin} to #{matching.destination} with #{matching.expert.name}
+          li In #{matching.destination} with #{matching.expert.name}
     else 
       p no matching
