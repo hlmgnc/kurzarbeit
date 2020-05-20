@@ -15,6 +15,6 @@ app.use('/clients', clientsRouter)
 app.use('/', indexRouter)
 app.use('/experts', expertsRouter)
 app.use('/matchings', matchingsRouter)
-app.listen(8080,() => {
-    console.log('started listening on 8080')
-})
+
+
+module.exports = app

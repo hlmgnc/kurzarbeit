@@ -4,9 +4,10 @@
   "description": "trial 1",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon --ignore '*.json'"
+    "start": "node .bin/www",
+    "test": "jest",
+    "test-watch": "jest --coverage --verbose --watch",
+    "watch": "nodemon --ignore '*.json' .bin/www"
   },
   "author": "hilmi genc <hlmgnc@gmail.com>",
   "license": "ISC",
@@ -20,5 +21,9 @@
     "nodemon": "^2.0.3",
     "pug": "^2.0.4",
     "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "supertest": "^4.0.2"
   }
 }
