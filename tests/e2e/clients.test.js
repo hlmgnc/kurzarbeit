@@ -18,3 +18,13 @@ test('creates a new client', async (done) => {
   
     done()
   })
+
+  test('loads a matching',async (done) => {
+      
+    const matchingsRouter = await request
+    .get('/matchings')
+    .expect(200)
+
+    done()
+})
+
