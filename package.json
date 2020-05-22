@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node .bin/www",
-    "test": "jest",
-    "test-watch": "jest --verbose --watch --coverage --runInBand --detectOpenHandles",
+    "test": "jest --coverage",
+    "test-watch": "jest --verbose --watch --coverage --runInBand --detectOpenHandles ",
     "watch": "nodemon --ignore '*.json' .bin/www"
   },
   "author": "hilmi genc <hlmgnc@gmail.com>",
