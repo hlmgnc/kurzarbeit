@@ -16,5 +16,5 @@ export default {
 <template lang="pug">
   .about
     h1 This is an about page
-    HelloWorld (type="countAbout" :count="countAbout" msg= "This is Istanbul!")
+    HelloWorld(type="countAbout" :count="countAbout" msg= "This is Istanbul!")
 </template>

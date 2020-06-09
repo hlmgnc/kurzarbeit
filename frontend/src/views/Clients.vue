@@ -24,7 +24,7 @@ export default {
     h1 Clients
     p(v-if="isLoading") Please wait...
     div(v-else)
-      p There are {{clients.length}} clients are waiting...
+      p There are {{clients.length}} clients are waiting.
 
       ol
         li(v-for="client in clients")

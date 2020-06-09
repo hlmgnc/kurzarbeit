@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     res.send(await clientService.load())
     
     const type =req.query.type || 'json'
-    if (type = 'json') res.send(clients)
+    if (type == 'json') res.send(clients)
     else res.render('clients',{clients})
 }) 
 

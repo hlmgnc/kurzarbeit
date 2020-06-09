@@ -37,19 +37,18 @@ export default new Vuex.Store({
       const request = await axios.get('/clients')
       return request.data
     },
-    async fetchClient (ctx, clientId) {
-      const request = await axios.get(`/clients/'${clientId}`)
-      return request.data
-    },
     async fetchExperts () {
       const request = await axios.get('/experts')
+      return request.data
+    },
+    async fetchClient (ctx, clientId) {
+      const request = await axios.get(`/clients/${clientId}`)
       return request.data
     },
     async matchExpert ({ dispatch }, { clientId, expertId, origin, destination }) {
       const request = await axios.post(`/clients/${clientId}/matchings`, {
         expertId, origin, destination
       })
-      await dispatch('fetchClient', clientId)
 
       return request.data
     }

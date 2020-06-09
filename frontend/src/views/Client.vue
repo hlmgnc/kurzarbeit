@@ -40,15 +40,15 @@ export default {
         div(v-if="client.matchings.length")
           ol
             li(v-for="matching in client.matchings")
-              |  in {{ matching.origin }} with {{ matching.expert.name }}
-        p(v-else) No matchings
-        h2 Create new matching
-        p destination
+            | In {{ matching.origin }} with {{ matching.expert.name }}
+      p(v-else) No matchings
+      h2 Create new matching
+      p Destination:&nbsp;
         input(v-model="destination")
-        div(v-if="experts.length")
-          h3 Experts
-          ol
-            li(v-for="expert in experts")
-              | {{ expert.name }} is waiting to work in {{ expert.location }}
-              button.match(@click="matchExpertandUpdateClient({ expertId: expert._id, clientId: client._id, origin: client.location, destinatin: })") Match with Expert
+      div(v-if="experts.length")
+        h3 Experts
+        ol
+          li(v-for="expert in experts")
+            | {{ expert.name }} is waiting at {{ expert.location }}
+            button.book(@click="matchExpertAndUpdateClient({ expertId: expert._id, clientId: client._id, origin: client.location, destination })") Match expert
 </template>
