@@ -1,52 +1,52 @@
-POST http://localhost:8080/clients HTTP/1.1
+POST http://localhost:3000/clients HTTP/1.1
 content-type: application/json 
 
 {"name" : "mira" , "location" : "Bremen"}
 
 ###
 
-GET http://localhost:8080/clients/ HTTP/1.1
+GET http://localhost:3000/clients/ HTTP/1.1
 
 ###
 
-GET http://localhost:8080/clients/5ea1c6412afa2d368ccf1121 HTTP/1.1
+GET http://localhost:3000/clients/5ea1c6412afa2d368ccf1121 HTTP/1.1
 
 ###
 
-DELETE http://localhost:8080/clients/5ea81ef8a4690254287cc83e HTTP/1.1
+DELETE http://localhost:3000clients/5ea81ef8a4690254287cc83e HTTP/1.1
 
 ###
 
-PATCH http://localhost:8080/clients/5ea1c6412afa2d368ccf1121 HTTP/1.1
+PATCH http://localhost:3000/clients/5ea1c6412afa2d368ccf1121 HTTP/1.1
 content-type: application/json 
 
 {"name" : "Yesim" }
 ###
 
-POST http://localhost:8080/client/5ea2e7e03664224458e799f9/matchings/5ea2e7d53664224458e799f8  HTTP/1.1
+POST http://localhost:3000/client/5ea2e7e03664224458e799f9/matchings/5ea2e7d53664224458e799f8  HTTP/1.1
 content-type: application/json 
 
 ###
 
-POST http://localhost:8080/experts HTTP/1.1
+POST http://localhost:3000/experts HTTP/1.1
 content-type: application/json 
 
 {"name" : "dogu" , "location" : "koln"}
 
 ###
 
-DELETE http://localhost:8080/experts/5ea8222df35cfb2d28e2ef09 HTTP/1.1
+DELETE http://localhost:3000/experts/5ea8222df35cfb2d28e2ef09 HTTP/1.1
 
 ###
 
-POST http://localhost:8080/clients/5ea1c43d2afa2d368ccf111f/matchings HTTP/1.1
+POST http://localhost:3000/clients/5ea1c43d2afa2d368ccf111f/matchings HTTP/1.1
 content-type: application/json 
 
 {"expertId": "5eaaedcc9bea3d1d4c0dcf74" , "origin" :"köln", "destination" : "köln" }
 
 ###
 
-PATCH http://localhost:8080/experts/5ea82000f35cfb2d28e2ef08 HTTP/1.1
+PATCH http://localhost:3000/experts/5ea82000f35cfb2d28e2ef08 HTTP/1.1
 content-type: application/json 
 
 {"name" : "new expert" }

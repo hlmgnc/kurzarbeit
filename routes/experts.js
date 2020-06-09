@@ -3,9 +3,8 @@ const { expertService } = require('../services')
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
-    const experts = await expertService.load()  
-    //res.send(flatted.stringify(experts))
-    res.render('experts',{experts})
+    res.send(await expertService.load())  
+    
 }) 
 
 
