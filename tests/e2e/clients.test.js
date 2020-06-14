@@ -1,15 +1,16 @@
 const app = require('../..')
 const request = require('supertest')(app)
-test('creates a new client', async (done) => {
 
-    const clientToCreate = {
+test('creates a new client', async (done) => {
+  const clientToCreate = {
         name:'Test client',
         location: 'Wiesbaden'
     }
+    
     const response = await request
-    .post('/clients').send(clientToCreate)
-    .send(clientToCreate)
-    .expect(200)
+     .post('/clients').send(clientToCreate)
+     .send(clientToCreate)
+     .expect(200)
 
     const clientCreated = response.body
 
@@ -18,7 +19,6 @@ test('creates a new client', async (done) => {
   
     done()
   })
-
   test('loads a client',async (done) => {
       
 

@@ -1,7 +1,7 @@
 const app = require('../..')
 const request = require('supertest')(app)
-test('creates a new matching', async (done) => {
 
+  test('creates a new matching', async (done) => {
     const clientToCreate = {
         name:'Test client',
         location: 'Wiesbaden'
@@ -11,19 +11,18 @@ test('creates a new matching', async (done) => {
         location: 'Wiesbaden',
         age:18
     }
-    
     const origin ='wiesbaden'
     const destination ='wiesbaden'
     
 
     const clientResponse = await request
-    .post('/clients').send(clientToCreate)
+    .post('/clients')
     .send(clientToCreate)
     .expect(200)
 
     
     const expertResponse = await request
-    .post('/experts').send(expertToCreate)
+    .post('/experts')
     .send(expertToCreate)
     .expect(200)
     

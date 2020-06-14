@@ -25,21 +25,26 @@ export default {
     async updateClient () {
       this.client = await this.fetchClient(this.$route.params.clientId)
     }
+  },
+  watch: {
+    'client.matchings' (matchings) {
+      console.log('matchings updated', matchings)
+    }
   }
 }
 </script>
 
 <template lang="pug">
-    .client
-      p(v-if="isLoading") Please wait...
-      div(v-else)
-        h1 Client Detail
-        p {{ client.name }}
+  .client
+    p(v-if="isLoading") Please wait...
+    div(v-else)
+      h1 Client Detail
+      p {{ client.name }}
 
-        h2 Matching History
-        div(v-if="client.matchings.length")
-          ol
-            li(v-for="matching in client.matchings")
+      h2 Matching History
+      div(v-if="client.matchings.length")
+        ol
+          li(v-for="matching in client.matchings")
             | In {{ matching.origin }} with {{ matching.expert.name }}
       p(v-else) No matchings
       h2 Create new matching

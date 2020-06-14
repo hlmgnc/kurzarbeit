@@ -41,7 +41,7 @@ export default new Vuex.Store({
       const request = await axios.get('/experts')
       return request.data
     },
-    async fetchClient (ctx, clientId) {
+    async fetchClient ({ state }, clientId) {
       const request = await axios.get(`/clients/${clientId}`)
       return request.data
     },

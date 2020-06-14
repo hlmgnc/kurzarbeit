@@ -1,5 +1,5 @@
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'HelloWorld',
@@ -10,9 +10,6 @@ export default {
   },
   methods: {
     ...mapActions(['increment', 'decrement'])
-  },
-  computed: {
-    ...mapState(['count'])
   }
 }
 </script>

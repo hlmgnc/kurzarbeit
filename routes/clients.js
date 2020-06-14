@@ -5,23 +5,18 @@ const router = require('express').Router()
 router.get('/', async (req, res) => {
     res.send(await clientService.load())
     
-    const type =req.query.type || 'json'
-    if (type == 'json') res.send(clients)
-    else res.render('clients',{clients})
 }) 
 
-
 router.post('/', async (req, res, next) => {
-   
     try{
         const client = await clientService.insert(req.body)
         res.send(client)
-    } catch(e) {
+    }   catch(e) {
         next(e)
     }
 })
 
-router.delete('/:clientId', async (req, res) =>{
+router.delete('/:clientId', async (req, res) => {
     await clientService.removeBy('_id', req.params.clientId)
     res.send('ok')
 })
@@ -32,17 +27,13 @@ router.get('/:clientId', async (req, res)=> {
 
     if(!client) return res.status(404)
     res.send(client)
-    
-
 })
 
-router.post('/:clientId/matchings', async(req,res) => {
+router.post('/:clientId/matchings', async (req,res) => {
     const { clientId } = req.params
     const { expertId, origin, destination } = req.body
 
     const matching = await matchingService.match(expertId, clientId, origin , destination)
-
-    
     res.send(matching)
 })
 
