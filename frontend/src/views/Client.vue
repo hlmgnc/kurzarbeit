@@ -45,7 +45,7 @@ export default {
       div(v-if="client.matchings.length")
         ol
           li(v-for="matching in client.matchings")
-            | In {{ matching.origin }} with {{ matching.expert.name }}
+            | In {{ matching.destination }} with {{ matching.expert.name }}
       p(v-else) No matchings
       h2 Create new matching
       p Destination:&nbsp;
