@@ -1,7 +1,7 @@
 POST http://localhost:4000/clients HTTP/1.1
 content-type: application/json 
 
-{"name" : "mira" , "location" : "Bremen"}
+{"name" : "hilmi" , "location" : "Bremen"}
 
 ###
 
